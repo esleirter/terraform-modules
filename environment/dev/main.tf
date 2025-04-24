@@ -2,10 +2,19 @@ module "vpc" {
   source = "../../modules/aws/vpc"
 
   project         = "myapp"
-  environment     = "dev"
+  environment     = var.environment
 
   vpc_cidr        = var.vpc_cidr
   azs             = ["us-east-1a", "us-east-1b", "us-east-1c"]
   public_subnets  = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
   private_subnets = ["10.0.11.0/24", "10.0.12.0/24", "10.0.13.0/24"]
+}
+
+module "ec2_private" {
+  source = "../../modules/aws/ec2"
+
+  project         = "myapp"
+  environment     = var.environment
+  subnet_id = module.vpc.private_subnets[0]
+  depends_on = [ module.vpc ]
 }
