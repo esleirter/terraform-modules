@@ -42,3 +42,9 @@ output "igw_id" {
   description = "The ID of the Internet Gateway"
   value       = module.vpc_with_subnets.igw_id
 }
+
+output "default_security_group_id" {
+  description = "The ID of the security group created by default on VPC creation"
+  value       = module.vpc_with_subnets.default_security_group_id
+}
+

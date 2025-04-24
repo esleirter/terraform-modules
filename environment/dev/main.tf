@@ -15,6 +15,12 @@ module "ec2_private" {
 
   project         = "myapp"
   environment     = var.environment
+
+  instance_names = ["001"]
+  ami = "Asd"
+  
   subnet_id = module.vpc.private_subnets[0]
+  vpc_security_group_ids = [module.vpc.default_security_group_id]
+
   depends_on = [ module.vpc ]
 }

@@ -1,9 +1,9 @@
 locals {
   name      = lower("${var.environment}-${var.project}")
   vpc_name  = lower("${local.name}-vpc")
-  acl_name  = lower("${local.name}-acl")
-  rt_name   = lower("${local.name}-rt")
-  sg_name   = lower("${local.name}-sg")
+  acl_name  = lower("${local.name}-acl-default")
+  rt_name   = lower("${local.name}-rt-default")
+  sg_name   = lower("${local.name}-sg-default")
 
   default_tags = {
     Project     = var.project

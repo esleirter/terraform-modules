@@ -9,7 +9,7 @@ module "vpc_with_subnets" {
   default_security_group_name   = local.sg_name
 
   # availability zones
-  azs             = var.azs
+  azs = var.azs
 
   # vpc cidr
   cidr = var.vpc_cidr
@@ -28,9 +28,9 @@ module "vpc_with_subnets" {
   enable_dns_support   = var.enable_dns_support
 
   # tags for public, private subnets and vpc
-  tags = local.all_tags
   public_subnet_tags  = var.additional_public_subnet_tags
   private_subnet_tags = var.additional_private_subnet_tags
+  tags                = local.all_tags
 
   # create internet gateway
   create_igw       = var.create_igw
