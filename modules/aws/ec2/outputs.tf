@@ -9,6 +9,12 @@ output "key_pair_name" {
   value       = module.key_pair.key_pair_name
 }
 
+output "private_key_pem" {
+  description = "Private key to SSH into the EC2 instance"
+  value       = module.key_pair.private_key_pem
+  sensitive   = true
+}
+
 # EC2 Outputs
 
 output "ec2_ids" {
